@@ -1,0 +1,60 @@
+﻿@model CourseCreateModel
+@{
+    ViewData["Title"] = "CreateCourse";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Create Course</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form role="form" asp-antiforgery="true" asp-action="CreateCourse"
+                      asp-area="Admin" asp-controller="CRUD" method="post">
+                    <div class="card-body">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Course.Title"></label>
+                            <input type="text" class="form-control" asp-for="@Model.Course.Title" placeholder="Enter title">
+                            <span asp-validation-for="@Model.Course.Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Course.Fees"></label>
+                            <input type="text" class="form-control" asp-for="@Model.Course.Fees" placeholder="Enter fees">
+                            <span asp-validation-for="@Model.Course.Fees" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Course.IsActive"></label>
+                            <input type="text" class="form-control" asp-for="@Model.Course.IsActive" placeholder="Enter Active Status">
+                            <span asp-validation-for="@Model.Course.IsActive" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Course.ClassStartDate">Class start Date</label>
+                            <input type="datetime-local" class="form-control" asp-for="@Model.Course.ClassStartDate">
+                            <span asp-validation-for="@Model.Course.ClassStartDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.card -->
+
+        </div>
+        <!--/.col (left) -->
+    </div>
+    <!-- /.row -->
+</div><!-- /.container-fluid -->
+@section Scripts
+    {
+    <partial name="_ValidationScriptsPartial" />
+}
+
